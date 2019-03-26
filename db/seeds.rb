@@ -19,3 +19,21 @@ Category.create([
         enable: true
     }
 ])
+
+Product.create([
+    {
+        name: 'Soto',
+        description: 'This is Soto',
+        enable: true
+    },
+    {
+        name: 'Chair',
+        description: 'This is Chair',
+        enable: true
+    },
+    {
+        name: 'Handphone',
+        description: 'This is Handphone',
+        enable: true
+    }
+])
