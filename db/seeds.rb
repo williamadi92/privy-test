@@ -20,20 +20,17 @@ Category.create([
     }
 ])
 
-Product.create([
+Image.create([
     {
-        name: 'Soto',
-        description: 'This is Soto',
+        name: 'Image1',
         enable: true
     },
     {
-        name: 'Chair',
-        description: 'This is Chair',
+        name: 'Image2',
         enable: true
     },
     {
-        name: 'Handphone',
-        description: 'This is Handphone',
+        name: 'Image3',
         enable: true
     }
 ])
