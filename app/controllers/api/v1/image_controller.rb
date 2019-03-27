@@ -38,6 +38,7 @@ module Api
 
             def destroy
                 image = Image.find(params[:id])
+                ProductImage.where(image_id: image.id).delete_all
                 image.destroy
                 render json: {status: 'SUCCESS', message: 'Deleted image', data: image}, 
                 status: :ok

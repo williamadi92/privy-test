@@ -38,6 +38,7 @@ module Api
 
             def destroy
                 category = Category.find(params[:id])
+                CategoryProduct.where(category_id: category.id).delete_all
                 category.destroy
                 render json: {status: 'SUCCESS', message: 'Deleted category', data: category}, 
                 status: :ok

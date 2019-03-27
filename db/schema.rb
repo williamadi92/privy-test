@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190327034214) do
+ActiveRecord::Schema.define(version: 20190327053646) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.boolean "enable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "category_products", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "product_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_category_products_on_category_id"
+    t.index ["product_id"], name: "index_category_products_on_product_id"
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -27,6 +34,13 @@ ActiveRecord::Schema.define(version: 20190327034214) do
     t.string "file"
   end
 
+  create_table "product_images", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "product_id"
+    t.bigint "image_id"
+    t.index ["image_id"], name: "index_product_images_on_image_id"
+    t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "description"
@@ -35,4 +49,8 @@ ActiveRecord::Schema.define(version: 20190327034214) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "category_products", "categories"
+  add_foreign_key "category_products", "products"
+  add_foreign_key "product_images", "images"
+  add_foreign_key "product_images", "products"
 end
