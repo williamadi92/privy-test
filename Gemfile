@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.3'
 # gem 'sqlite3'
 gem 'mysql2', '~> 0.3.18'
 gem 'puma', '~> 3.7'
+gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
